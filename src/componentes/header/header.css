@@ -1,0 +1,8 @@
+.header{
+    text-align: center;
+    background: var(--Secundria, #44a9a9);
+}
+
+.header img{
+    max-width: 50%;
+}
