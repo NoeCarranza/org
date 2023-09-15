@@ -1,10 +1,21 @@
 import "./equipo.css"
-
+import Personaje from "../personaje/personaje"
 const Equipo = (props) =>{
-    return <section className="equipo">
-        <h3>{props.Equipo}</h3>
-        <div className="personajes">
 
+    //Destructuracuín
+    const {colorPrimario,colorSecundario, titulo} = props.datos
+    const obj = {
+        backgroundColor:colorSecundario
+    }
+
+    const estiloTitulo = {borderColor:colorPrimario}
+
+
+    return <section className="equipo" style={obj}>
+        <h3 style={estiloTitulo}>{titulo}</h3>
+        <div className="personajes">
+            <Personaje/>
+            <Personaje/>
         </div>
     </section>
 }

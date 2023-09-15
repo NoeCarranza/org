@@ -1,0 +1,48 @@
+.personaje{
+    width: 280px;
+    margin-bottom: 24px;
+}
+
+.personaje .encabezado{
+    background-color: #f0f0f0;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.personaje img{
+    width: 100px;
+    border-radius: 50%;
+    position: relative;
+    bottom: -50px;
+}
+
+.personaje .info{
+    background-color: #ffffff;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.08);
+    border-radius: 0px 0px 10px 10px;
+    padding-top: 90px;
+    padding-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.personaje .info h4{
+    color: #6278f7;
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: bold;
+    margin-bottom: 8px;
+
+}
+
+.personaje .info h5{
+    font-size: 18px;
+    line-height: 22px;
+    color: #212121;
+    padding: 0 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+
+
+

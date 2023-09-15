@@ -7,12 +7,22 @@ import Equipo from './componentes/Equipo/equipo';
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false)
+  const [Personaje, actualizarPersonaje] = useState([])
   //Ternario --> condicion ? semuestra : nosemuestra
   const cambiarMostrar = () =>{
     actualizarMostrar(!mostrarFormulario)
   }
 
   
+//Registrar personaje
+
+  const registrarPersonaje = (personaje) =>{
+    console.log("Nuevo personaje", personaje)
+    //Spread operator
+    actualizarPersonaje([...Personaje,personaje])
+  }
+
+
 const equipos = [
   {
   titulo:"Clones",
@@ -51,8 +61,8 @@ const equipos = [
 
   {
       titulo:"Miembro de la Alianza Rebelde",
-      colorPrimario: "#82CFFA",
-      colorSecundario: "#6dc9fe",
+      colorPrimario: "#6dc9fe ",
+      colorSecundario: "#82CFFA",
   }
   ,
   {
@@ -80,7 +90,12 @@ const equipos = [
 
       <Header/>
       {/* { mostrarFormulario  ? <Formulario /> : <></>} es lo mismo  */}
-      {mostrarFormulario && <Formulario/>}
+      {
+      mostrarFormulario && <Formulario
+        equipos={equipos.map((equipo)=> equipo.titulo)}
+        registrarPersonaje = {registrarPersonaje}
+        />
+      }
       <MiOrg cambiarMostrar={cambiarMostrar}/>
 
       {
