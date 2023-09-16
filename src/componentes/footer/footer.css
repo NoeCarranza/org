@@ -1,0 +1,34 @@
+.footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position:center;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    padding: 120px 0px; 
+}
+
+.redes{
+    padding: 0px 15px;
+}
+.redes img{
+    padding: 0 15px;
+}
+
+.desarrollado{
+    color: #232323;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 70px;
+}
+
+.firma{
+    width: 70px;
+}
+
+

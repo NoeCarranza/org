@@ -1,13 +1,15 @@
 import "./personaje.css"
 
 const Personaje = (props) => {
+    const { nombre,puesto,foto,equipo} = props.datos
+    const {colorPrimario} =props
     return <div className="personaje">
-        <div className="encabezado">
-            <img src="https://github.com/NoeCarranza.png" alt="Noe"></img>
+        <div className="encabezado" style={{backgroundColor:colorPrimario}}>
+            <img src={foto} alt={nombre}></img>
         </div>
         <div className="info">
-            <h4>Noe</h4>
-            <h5>Sith</h5>
+            <h4>{nombre}</h4>
+            <h5>{puesto}</h5>
         </div>
 
     </div>

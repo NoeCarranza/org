@@ -4,10 +4,17 @@ import Header from './componentes/header/header';
 import Formulario from './componentes/formulario/formulario';
 import MiOrg from './componentes/mi-org/org';
 import Equipo from './componentes/Equipo/equipo';
+import Personaje from './componentes/personaje/personaje';
+import Footer from './componentes/footer/footer';
 
 function App() {
   const [mostrarFormulario, actualizarMostrar] = useState(false)
-  const [Personaje, actualizarPersonaje] = useState([])
+  const [personajes, actualizarPersonajes] = useState([{
+  nombre:"Obi-Wan Kenovi",
+  puesto:"General Jedi del gran ejército de la República",
+  foto:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_o_DkuY_9f18Dfpgoqd7MVuU2uGk7kUN7GSp8E7E6RmU6DndfUbSE2yaMDcDGz7xG5YA&usqp=CAU",
+  equipo:"Jedi"
+  }])
   //Ternario --> condicion ? semuestra : nosemuestra
   const cambiarMostrar = () =>{
     actualizarMostrar(!mostrarFormulario)
@@ -16,11 +23,11 @@ function App() {
   
 //Registrar personaje
 
-  const registrarPersonaje = (personaje) =>{
-    console.log("Nuevo personaje", personaje)
-    //Spread operator
-    actualizarPersonaje([...Personaje,personaje])
-  }
+const RegistrarPersonaje = (PersonajeSW) => {
+  console.log("Nuevo personaje", PersonajeSW)
+//spread operator
+  actualizarPersonajes([...personajes, PersonajeSW])
+}
 
 
 const equipos = [
@@ -92,15 +99,22 @@ const equipos = [
       {/* { mostrarFormulario  ? <Formulario /> : <></>} es lo mismo  */}
       {
       mostrarFormulario && <Formulario
-        equipos={equipos.map((equipo)=> equipo.titulo)}
-        registrarPersonaje = {registrarPersonaje}
+          equipos={equipos.map((equipo)=> equipo.titulo)}
+          RegistrarPersonaje={RegistrarPersonaje}
         />
+        
       }
       <MiOrg cambiarMostrar={cambiarMostrar}/>
 
       {
-        equipos.map( (equipo) => <Equipo datos={equipo} key={equipo.titulo} />)
+        equipos.map( (equipo) => <Equipo 
+        datos={equipo} 
+        key={equipo.titulo} 
+        personajes={personajes.filter(Personaje => Personaje.equipo === equipo.titulo)}
+        />
+        )
       }
+      <Footer/>
 
     </div>
   );

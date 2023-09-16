@@ -10,7 +10,9 @@ const Formulario = (props) => {
     const [puesto, actualizarPuesto] = useState("")
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarequipo] = useState("")
-    const{ registrarPersonaje } = props
+
+    
+    const {RegistrarPersonaje} = props
 
     const manejarEnvio = (e) => {
         e.preventDefault()
@@ -21,10 +23,11 @@ const Formulario = (props) => {
             foto: foto,
             equipo:equipo
         }
-        registrarPersonaje(datosAEnviar)
+        RegistrarPersonaje(datosAEnviar)
 
     }
     return <section className="formulario">
+
         <form onSubmit={manejarEnvio}>
             <h2>Rellena el formulario para agregar un personaje de la saga</h2>
             <CampoTexto
