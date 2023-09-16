@@ -6,7 +6,7 @@ const ListaOpciones = (props) =>{
         
         "Clones",
         "Criatura",
-        "Droiode", 
+        "Droide", 
         "Jedi", 
         "Miembro del Imperio", 
         "Miembro de la Alianza Rebelde",
