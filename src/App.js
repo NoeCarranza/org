@@ -64,6 +64,72 @@ equipo:"Miembro del Imperio"
           }
 
 ])
+
+const [equipos,actualizarEquipos] = useState([
+    {
+    titulo:"Clones",
+    colorPrimario: "#838383",
+    colorSecundario: "#c9cbcb",
+    }
+    ,
+  
+    {
+    titulo:"Criatura",
+    colorPrimario: "#FF8A29",
+    colorSecundario: "#FFEEDF",
+    }
+    ,
+    
+    {
+        titulo:"Droide",
+        colorPrimario: "#00aeff",
+        colorSecundario: "#a1dcf7",
+    }
+    ,
+  
+    {
+        titulo:"Jedi",
+        colorPrimario: "#00E7FF",
+        colorSecundario: "#99F5FF",
+    }
+    ,
+  
+    {
+        titulo:"Miembro del Imperio",
+        colorPrimario: "#E06B69",
+        colorSecundario: "#ffa4a9",
+    }
+    ,
+  
+    {
+        titulo:"Miembro de la Alianza Rebelde",
+        colorPrimario: "#6dc9fe",
+        colorSecundario: "#B6E4FE",
+    }
+    ,
+    {
+        titulo:"Sith",
+        colorPrimario: "#ED2939",
+        colorSecundario: "#E26259",
+    }
+    ,
+  
+    {
+        titulo:"Mandaloriano",
+        colorPrimario: "#405F5B",
+        colorSecundario: "#81bfb6",
+    }
+    ,
+  
+    {
+        titulo:"Otros",
+        colorPrimario: "#57C278",
+        colorSecundario: "#a3d1b1",
+    }
+  ]
+)
+
+
   //Ternario --> condicion ? semuestra : nosemuestra
   const cambiarMostrar = () =>{
     actualizarMostrar(!mostrarFormulario)
@@ -84,68 +150,20 @@ const eliminarPersonaje = () =>{
   console.log("eliminar")
 }
 
-const equipos = [
-  {
-  titulo:"Clones",
-  colorPrimario: "##838383",
-  colorSecundario: "#c9cbcb",
-  }
-  ,
+//Actualizar color de equipos
 
-  {
-  titulo:"Criatura",
-  colorPrimario: "#FF8A29",
-  colorSecundario: "#FFEEDF",
-  }
-  ,
-  
-  {
-      titulo:"Droide",
-      colorPrimario: "#00aeff",
-      colorSecundario: "#a1dcf7",
-  }
-  ,
+const actualizarColor = (color, titulo) =>{
+  console.log("actualizar: ", color, titulo)
+  const equiposActualizados = equipos.map((equipo)=>{
+    if(equipo.titulo ===titulo){
+      equipo.colorPrimario = color
+    }
+    return equipo
+  })
 
-  {
-      titulo:"Jedi",
-      colorPrimario: "#00E7FF",
-      colorSecundario: "#99F5FF",
-  }
-  ,
+  actualizarEquipos(equiposActualizados)
+}
 
-  {
-      titulo:"Miembro del Imperio",
-      colorPrimario: "#E06B69",
-      colorSecundario: "#ffa4a9",
-  }
-  ,
-
-  {
-      titulo:"Miembro de la Alianza Rebelde",
-      colorPrimario: "#6dc9fe",
-      colorSecundario: "#B6E4FE",
-  }
-  ,
-  {
-      titulo:"Sith",
-      colorPrimario: "#ED2939",
-      colorSecundario: "#E26259",
-  }
-  ,
-
-  {
-      titulo:"Mandaloriano",
-      colorPrimario: "#405F5B",
-      colorSecundario: "#81bfb6",
-  }
-  ,
-
-  {
-      titulo:"Otros",
-      colorPrimario: "#57C278",
-      colorSecundario: "#a3d1b1",
-  }
-]
   return (
     <div>
 
@@ -166,6 +184,7 @@ const equipos = [
         key={equipo.titulo} 
         personajes={personajes.filter(Personaje => Personaje.equipo === equipo.titulo)}
         eliminarPersonaje={eliminarPersonaje}
+        actualizarColor={actualizarColor}
         />
         )
       }
