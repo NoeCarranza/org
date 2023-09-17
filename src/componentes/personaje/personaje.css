@@ -1,6 +1,7 @@
 .personaje{
     width: 280px;
     margin-bottom: 24px;
+    position: relative;
 }
 
 .personaje .encabezado{
@@ -42,6 +43,11 @@
     margin: 0;
 }
 
+.eliminar{
+    position: absolute;
+    right: -15px;
+    top: -15px;
+}
 
 
 

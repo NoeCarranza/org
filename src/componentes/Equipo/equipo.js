@@ -5,7 +5,7 @@ const Equipo = (props) => {
 
     //Destructuracuín
     const { colorPrimario, colorSecundario, titulo } = props.datos
-    const { personajes } = props
+    const { personajes, eliminarPersonaje } = props
     const obj = {
         backgroundColor: colorSecundario
     }
@@ -22,7 +22,10 @@ return <>
                         personajes.map((personaje, index) => <Personaje 
                         datos={personaje} 
                         key={index} 
-                        colorPrimario={colorPrimario}/>)
+                        colorPrimario={colorPrimario}
+                        eliminarPersonaje={eliminarPersonaje}
+                        />
+                        )
                     }
                 </div>
             </section >

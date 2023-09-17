@@ -78,6 +78,11 @@ const RegistrarPersonaje = (PersonajeSW) => {
   actualizarPersonajes([...personajes, PersonajeSW])
 }
 
+//Eliminar personaje
+
+const eliminarPersonaje = () =>{
+  console.log("eliminar")
+}
 
 const equipos = [
   {
@@ -160,6 +165,7 @@ const equipos = [
         datos={equipo} 
         key={equipo.titulo} 
         personajes={personajes.filter(Personaje => Personaje.equipo === equipo.titulo)}
+        eliminarPersonaje={eliminarPersonaje}
         />
         )
       }
