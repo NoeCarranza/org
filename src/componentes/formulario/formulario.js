@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./formulario.css"
-import CampoTexto from "../campoTexto/campoTexto"
+import Campo from "../campo/campo"
 import ListaOpciones from "../lista-opciones/listaopciones"
 import Boton from "../boton-crear/boton-crear"
 
@@ -11,8 +11,12 @@ const Formulario = (props) => {
     const [foto, actualizarFoto] = useState("")
     const [equipo, actualizarequipo] = useState("")
 
+    const [titulo, actualizarTitulo] = useState("")
+    const [color, actualizarColor] = useState("")
     
-    const {RegistrarPersonaje} = props
+    const {RegistrarPersonaje,crearEquipo} = props
+
+    console.log("Nuevo equipo:", { titulo, color });
 
     const manejarEnvio = (e) => {
         e.preventDefault()
@@ -26,18 +30,25 @@ const Formulario = (props) => {
         RegistrarPersonaje(datosAEnviar)
 
     }
+
+    const manejarNuevoEquipo = (e) =>{
+    e.preventDefault()
+    crearEquipo({titulo, colorPrimario:color})
+    }
+
+
     return <section className="formulario">
 
         <form onSubmit={manejarEnvio}>
             <h2>Rellena el formulario para agregar un personaje de la saga</h2>
-            <CampoTexto
+            <Campo
                 titulo="Nombre"
                 placeholder="Ingresa el nombre"
                 required
                 valor={nombre}
                 actualizarValor={actualizarNombre}
             />
-            <CampoTexto
+            <Campo
                 titulo="Profesión"
                 placeholder="Ingresala profesión"
                 required
@@ -45,7 +56,7 @@ const Formulario = (props) => {
                 actualizarValor={actualizarPuesto}
 
             />
-            <CampoTexto
+            <Campo
                 titulo="Foto"
                 placeholder="Ingresa el enlace de la foto"
                 required
@@ -62,7 +73,25 @@ const Formulario = (props) => {
             />
             <Boton texto="Agregar personaje" />
         </form>
-        
+        <form onSubmit={manejarNuevoEquipo}>
+            <h2>Rellena el formulario para agregar un equipo de la saga</h2>
+            <Campo
+                titulo="Equipo"
+                placeholder="Ingresa el nombre del equipo"
+                required
+                valor={titulo}
+                actualizarValor={actualizarTitulo}
+            />
+            <Campo
+                titulo="Color"
+                placeholder="Ingresa el color en Hex"
+                required
+                valor={color}
+                actualizarValor={actualizarColor}
+                type="color"
+            />
+            <Boton texto="Agregar equipo" />
+        </form>
     </section>
 }
 
